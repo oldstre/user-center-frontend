@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import { Card, Alert, Typography } from 'antd';
+import bg from './bg.png';
 import styles from './Welcome.less';
 
 const CodePreview: React.FC = ({ children }) => (
@@ -25,6 +26,23 @@ const Welcome: React.FC = () => {
             marginBottom: 24,
           }}
         />
+        <div style={{
+          minHeight: 800,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column'
+        }}>
+
+          <iframe style={{
+            width: '50%',
+            height: 400
+          }} src="http://www.seniverse.com/weather/weather.aspx?c=CHXX0008&l=zh-CN&p=MSN&a=1&u=C&s=5&m=1&x=1&d=3&fc=&bgc=&bc" frameborder="0"></iframe>
+
+          <img src={bg} style={{
+            width: 400
+          }} />
+        </div>
         <Typography.Text strong>
           {/*高级表格{' '}*/}
           {/*<a*/}

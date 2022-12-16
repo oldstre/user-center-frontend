@@ -69,7 +69,30 @@ export async function searchProduct(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
-
+/** 添加产品 GET /api/product/add */
+export async function addProduct(body) {
+  return request<API.BaseResponse<API.CurrentProduct[]>>('/api/product/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body
+  });
+}
+/** 更新产品 GET /api/product/update */
+export async function editProduct(body: API.deleteProductParams,options?: { [key: string]: any }) {
+  return request<API.BaseResponse<API.CurrentProduct>>('/api/product/update', {
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    params:{
+      id:body.id
+    },
+    ...(options || {}),
+  });
+}
 /** 删除产品 GET /api/product/search */
 export async function deleteProduct(body: API.deleteProductParams,options?: { [key: string]: any }) {
   return request<API.BaseResponse<API.CurrentProduct>>('/api/product/delete', {
@@ -107,7 +130,7 @@ export async function deleteComponent(body: API.deleteComponentParams,options?: 
     ...(options || {}),
   });
 }
-/** 搜索零件 GET /api/material/search */
+/** 搜索原材料 GET /api/material/search */
 export async function searchMaterial(options?: { [key: string]: any }) {
   return request<API.BaseResponse<API.CurrentMaterial[]>>('/api/material/search', {
     method: 'GET',
@@ -115,7 +138,7 @@ export async function searchMaterial(options?: { [key: string]: any }) {
   });
 }
 
-/** 删除零件 GET /api/material/delete */
+/** 删除原材料 GET /api/material/delete */
 export async function deleteMaterial(body: API.deleteMaterialParams,options?: { [key: string]: any }) {
   return request<API.BaseResponse<API.CurrentMaterial>>('/api/material/delete', {
     method: 'POST',
@@ -129,7 +152,27 @@ export async function deleteMaterial(body: API.deleteMaterialParams,options?: { 
     ...(options || {}),
   });
 }
-
+/** 搜索制造表 GET /api/manufacture/search */
+export async function searchManufacture(options?: { [key: string]: any }) {
+  return request<API.BaseResponse<API.CurrentMaterial[]>>('/api/manufacture/search', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+/** 搜索组成表 GET /api/composition/search */
+export async function searchComposition(options?: { [key: string]: any }) {
+  return request<API.BaseResponse<API.CurrentMaterial[]>>('/api/composition/search', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+/** 搜索运输表 GET /api/composition/search */
+export async function searchTransportation(options?: { [key: string]: any }) {
+  return request<API.BaseResponse<API.CurrentMaterial[]>>('/api/transport/search', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
 
 /** 此处后端没有提供注释 GET /api/notices */
 export async function getNotices(options?: { [key: string]: any }) {

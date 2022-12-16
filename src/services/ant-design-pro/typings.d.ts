@@ -19,11 +19,10 @@ declare namespace API {
    * 商品类型
    */
   type CurrentProduct = {
-    id: number;
-    productName: string;
-    productImg?: string;
-    productQuantity:number;
-    productType:string;
+    id?: number;
+    productName?: string;
+    productQuantity?:number;
+    productType?:string;
 
   };
   /**
@@ -31,9 +30,9 @@ declare namespace API {
    */
   type CurrentComponent ={
     id:number;
-    componentName: string;
+    componentName?: string;
     componentImg?: string;
-    componentQuantity:number;
+    componentQuantity?:number;
   }
   /**
    * 原材料类型
@@ -43,6 +42,45 @@ declare namespace API {
     materialName:string;
     materialQuantity:number;
     materialType:string;
+  }
+  /**
+   * 组成表类型
+   */
+  type CurrentComposition={
+    id:number;
+    objectName:string;
+    component1:string;
+    com1Quantity:number;
+    component2:string;
+    com2Quantity:number;
+    component3:string;
+    com3Quantity:number;
+    component4:string;
+    com4Quantity:number;
+  }
+  /**
+   * 制造表类型
+   */
+  type CurrentManufacture={
+    id:number;
+    objectName:string;
+    mar1:string;
+    mar1Q:number;
+    mar2:string;
+    mar2Q:number;
+    mar3:string;
+    mar3Q:number;
+  }
+  /**
+   * 运输表类型
+   */
+  type CurrentTransportation={
+    id:number;
+    goodsId:number;
+    goodsName:string;
+    goodsQuantity:number;
+    inDate:Date;
+    outDate:Date;
   }
 
   type LoginResult = {

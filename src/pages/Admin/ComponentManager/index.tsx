@@ -8,6 +8,7 @@ import {deleteUserParams} from "@/services/ant-design-pro/typings";
 import {request} from "umi";
 import {EllipsisOutlined, PlusOutlined} from "@ant-design/icons";
 import Dropdown from "antd/es/dropdown";
+import CreateForm from "@/pages/TableList/components/CreateForm";
 // import { request } from 'umi';
 
 const columns: ProColumns<API.CurrentComponent>[] = [
@@ -134,6 +135,7 @@ export default () => {
       toolBarRender={() => [
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建
+
         </Button>,
         // <Dropdown
         //   key="menu"

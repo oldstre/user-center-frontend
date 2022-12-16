@@ -50,9 +50,16 @@ const columns: ProColumns<API.CurrentUser>[] = [
   {
     title: '状态',
     dataIndex: 'userStatus',
+    valueEnum: {
+      0: {text: '在岗', status: 'Success'},
+      1: {
+        text: '离岗',
+        status: 'Default',
+      },
+    }
   },
   {
-    title: '用户编号',
+    title: '员工编号',
     dataIndex: 'planetCode',
   },
   {
@@ -60,7 +67,7 @@ const columns: ProColumns<API.CurrentUser>[] = [
     dataIndex: 'userRole',
     valueType: 'select',
     valueEnum: {
-      0: { text: '普通用户', status: 'Default' },
+      0: { text: '普通员工', status: 'Default' },
       1: {
         text: '管理员',
         status: 'Success',
@@ -84,15 +91,15 @@ const columns: ProColumns<API.CurrentUser>[] = [
       >
         编辑
       </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
-        查看
-      </a>,
+      // <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
+      //   查看
+      // </a>,
       // onSelect={() => action?.reload()}
       <TableDropdown
         key="actionGroup"
         onSelect={
             async (values) => {
-              if(values==='delete') {
+              if(values==='delete'&&record.userRole==1) {
                   const params = {
                     id:record.id
                   }
@@ -114,7 +121,7 @@ const columns: ProColumns<API.CurrentUser>[] = [
             }
         }
         menus={[
-          { key: 'copy', name: '复制' },
+          // { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
         ]}
       />,

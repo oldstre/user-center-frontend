@@ -75,8 +75,8 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           logo={<img alt="logo" src={SYSTEM_LOGO}/>}
-          title="用户管理系统"
-          subTitle={<a href={PLANET_LINK} target="_blank" rel="noreferrer">最好的用户管理系统</a>}
+          title="骋霄的仓库"
+          subTitle={<a href={PLANET_LINK} target="_blank" rel="noreferrer">仓库管理系统</a>}
           initialValues={{
             autoLogin: true,
           }}
